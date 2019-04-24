@@ -4,12 +4,14 @@ import com.service.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.*;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.Collection;
 
 @RestController
@@ -35,5 +37,10 @@ public class StudentController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteStudentbyId(@PathVariable("id") int id) {
         studentService.removeStudentById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+    public void deleteStudentbyId(@RequestBody Student student) {
+        studentService.updateStudent(student);
     }
 }
