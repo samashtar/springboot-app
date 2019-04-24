@@ -48,4 +48,8 @@ public class StudentDao {
         students.put(student.getId(), student);
     }
 
+    public void addStudent(Student student) {
+
+    }
+
 }

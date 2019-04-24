@@ -28,19 +28,27 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    // '/id'
+    // Get Single Student /id
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable("id") int id) {
         return studentService.getStudentById(id);
     }
 
+    // Delete /id
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteStudentbyId(@PathVariable("id") int id) {
         studentService.removeStudentById(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
-    public void deleteStudentbyId(@RequestBody Student student) {
-        studentService.updateStudent(student);
+    // @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+    // public void deleteStudentbyId(@RequestBody Student student) {
+    // studentService.updateStudent(student);
+    // }
+
+    //
+    @RequestMapping(method = RequestMethod.POST)
+    public void addStudent(@RequestBody Student student) {
+        studentService.addStudent(student);
+
     }
 }
